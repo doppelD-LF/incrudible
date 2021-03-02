@@ -3,9 +3,21 @@
 {% block body %}
 
     <h1>{{ post.title }}</h1>
-    <em>Category: {{ post.category }} </em>
-    <hr>
-
-    <img src="{{ "/uploads/#{post.image}" }}" alt="NO IMAGE">
+        {% if post.category == null %}
+            <hr>
+   
+        {% else %}
+             <em>Category: {{ post.category }} </em>
+             <hr>
+        {% endif %}
+    
+    
+ 
+    {% if post.image == null %}
+      
+    {% else %}
+        <img src="{{ "/uploads/#{post.image}" }}" alt="NO IMAGE" width="auto" height="320px" >
+    {% endif %}
+    
 
 {% endblock %}
