@@ -46,6 +46,7 @@ class PostController extends AbstractController
 
             $file = $request->files->get('post') ['image'];
 
+            //TODO: Still persist & submit if no image file is found
             if($file) {
                 $filename = md5(uniqid()) .  '.' . $file->guessClientExtension();
                 

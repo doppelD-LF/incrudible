@@ -2,14 +2,20 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>
+          {% block title %} Welcome! {% endblock %}
+        </title>
         
         {% block stylesheets %}
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.0/darkly/bootstrap.min.css">
-        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.6.0/darkly/bootstrap.min.css">
+          <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+          
+
         {% endblock %}
 
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+        <link rel="stylesheet" href="/bootstrap/js/bootstrap.css">
+        {% endblock %}
     </head>
   
     <body>
@@ -29,15 +35,15 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ path('post.index')}}">Posts</a>
           </li>
-      
-          <li class="nav-item float-right">
-             <a class="nav-link" href="{{ path('app_login')}}">Login</a>
-           </li>
-      
+
           {% if is_granted('IS_AUTHENTICATED_FULLY') %}
             <li class="nav-item float-right">
               <a class="nav-link" href="{{ path('app_logout')}}">Logout</a>
             </li>
+            {% else %}
+              <li class="nav-item float-right">
+             <a class="nav-link" href="{{ path('app_login')}}">Login</a>
+           </li>           
           {% endif %}
         </ul>
       </div>
