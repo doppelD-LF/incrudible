@@ -1,5 +1,11 @@
 {% extends('base.html.twig') %}
 
 {% block body %}
-<h1>Welcome from twig!</h1>
+    {% for i in 0..8 %}
+        <br>
+    {% endfor %}
+    <div style="text-align: center">
+        <h1>Welcome to this inCRUDible blog!</h1>
+        <a> Please log in to edit posts &#9996;</a>
+    </div>
 {% endblock %}
